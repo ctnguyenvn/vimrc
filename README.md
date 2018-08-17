@@ -1,5 +1,5 @@
 ### Install simple vim configuration
-
+---
 #### - The configuration file supports the plugin with [vundle](https://github.com/VundleVim/Vundle.vim)
 
 #### - The plugin installed 
