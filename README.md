@@ -1,8 +1,8 @@
-#### Install simple vim configuration
+### Install simple vim configuration
 
-##### - The configuration file supports the plugin with [vundle](https://github.com/VundleVim/Vundle.vim)
+#### - The configuration file supports the plugin with [vundle](https://github.com/VundleVim/Vundle.vim)
 
-##### - The plugin installed 
+#### - The plugin installed 
 
 - Plugin 'VundleVim/Vundle.vim'
 
@@ -12,9 +12,9 @@
     
 - Plugin 'vim-airline/vim-airline'
 
-#####  - You can add more plugin using [vundle](https://github.com/VundleVim/Vundle.vim) at [vimawesome](https://vimawesome.com/)
+####  - You can add more plugin using [vundle](https://github.com/VundleVim/Vundle.vim) at [vimawesome](https://vimawesome.com/)
 
-##### - Install
+#### - Install simple
 
 - git  clone  https://github.com/ctnguyenvn/vimrc
 
@@ -22,4 +22,4 @@
 
 - ./install.sh
 
-##### - Updating...
+#### - Updating...
