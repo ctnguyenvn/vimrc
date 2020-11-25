@@ -16,13 +16,16 @@ set autoread
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-let mapleader = ","
+let mapleader = ";"
 
 " Fast saving
 nmap <leader>w :w!<cr>
 
 " NERDTree plugin
 nmap <F2> :NERDTreeToggle<cr>
+
+" Tagbar plugin
+nmap <F3> :TagbarToggle<cr>
 
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
