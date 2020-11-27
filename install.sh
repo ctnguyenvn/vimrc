@@ -41,6 +41,7 @@ main() {
     mkdir "$VIM_DIR"
     setup
     echo "Complete !!!"
+    echo "Please install ctags for tagbar plugin"
     echo "Please remove \" before Plugin and using :PluginInstall to install more plugin you want"
 }
 main

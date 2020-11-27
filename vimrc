@@ -177,12 +177,18 @@ endif
 let g:airline#extensions#tabline#enabled=1
 nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
+noremap <expr><silent> <leader>bf &showtabline ? ":set showtabline=0\<CR>" : ":set showtabline=2\<CR>"
 
 function s:SetCursorLine()
     set cursorline
-    hi cursorline cterm=none ctermbg=235 ctermfg=none
+    hi cursorlineNr cterm=none ctermbg=235 ctermfg=none
 endfunction
 autocmd VimEnter * call s:SetCursorLine()
+
+function s:HideTabline()
+    set showtabline=0
+endfunction
+autocmd VimEnter * call s:HideTabline()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Helper functions

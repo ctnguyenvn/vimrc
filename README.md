@@ -25,6 +25,8 @@ The plugin installed
     
 - Plugin [vim-airline/vim-airline](https://github.com/vim-airline/vim-airline)
 
+- Plugin [morhetz/gruvbox](https://github.com/morhetz/gruvbox)
+
 > You can add more plugin using [vundle](https://github.com/VundleVim/Vundle.vim) at [vimawesome](https://vimawesome.com/)
 
 Install simple
@@ -41,6 +43,7 @@ cd vimrc && bash install.sh
 |F2|Open/Off NERTree|
 |F3|Open/Off tagbar|
 |Ctrl+ww|move to next window(when open multi window or open NERDTree)|
+|;+bf|show/hide buffer bar|
 |tab|move between buffer|
 
 --- 
