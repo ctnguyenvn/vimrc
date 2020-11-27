@@ -44,6 +44,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'vim-airline/vim-airline'
+Plugin 'morhetz/gruvbox'
 " Plugin 'scrooloose/syntastic' " Syntax checking hacks for vim
 " Plugin 'kien/ctrlp.vim' " Fuzzy file, buffer, mru, tag, etc finder
 " Plugin 'honza/vim-snippets' " vim-snipmate default snippets (Previously snipmate-snippets)
@@ -110,10 +111,16 @@ set foldcolumn=1
 " Enable syntax highlighting
 syntax enable 
 
-colorscheme ron
+"colorscheme ron
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => gruvbox theme
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+colorscheme gruvbox
+set background=dark    " Setting dark mode
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
