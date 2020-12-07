@@ -49,6 +49,7 @@ Plugin 'morhetz/gruvbox'
 " Plugin 'kien/ctrlp.vim' " Fuzzy file, buffer, mru, tag, etc finder
 " Plugin 'honza/vim-snippets' " vim-snipmate default snippets (Previously snipmate-snippets)
 " Plugin 'terryma/vim-multiple-cursors' "  True Sublime Text style multiple selections for Vim
+" Plugin 'fatih/vim-go' " Plugin for golang language
 
 call vundle#end()
 filetype plugin indent on
