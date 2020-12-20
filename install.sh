@@ -28,6 +28,20 @@ else
 
 fi
 
+if [[ -x $(command -v vim) ]]; then
+    printf "${SUCCESS}[+] ${NORMAL}%s\n" "Vim: $(vim --version)"
+else
+    printf "${WARNING}[?] %s${NORMAL}" "vim text editer not installed in your OS\nInstalling..."
+    if [[ -x $(which -v yum) ]]; then
+        sudo yum install vim -y
+    elif [[ -x $(which -v apt) ]]; then
+        sudo apt install vim -y
+    else
+        printf "${ERROR}[x] %s${NORMAL}\n" "Vim is not installed in your OS"
+        exit -1
+    fi
+fi
+
 trap clean 1 2 3 6
 
 clean() {
