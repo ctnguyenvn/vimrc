@@ -14,12 +14,15 @@ filetype indent on
 " Set to auto read when a file is changed from the outside
 set autoread
 
+" Set split below
+set splitbelow
+
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
 let mapleader = ";"
 
 " Fast saving
-nmap <leader>w :w!<cr>
+nmap <leader>s :w!<cr>
 
 " NERDTree plugin
 nmap <F2> :NERDTreeToggle<cr>
@@ -27,9 +30,17 @@ nmap <F2> :NERDTreeToggle<cr>
 " Tagbar plugin
 nmap <F3> :TagbarToggle<cr>
 
+" Open terminal
+nmap <leader>t :below terminal<cr>
+nmap <leader>T :botright terminal<cr>
+
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
+
+" eable &&  set UndoTree folder
+set undodir=~/.vim/undodir
+set undofile
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Add vundle plugin
@@ -41,15 +52,15 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+
+"Vim plugin for intensely nerdy commenting powers
 Plugin 'scrooloose/nerdtree'
-Plugin 'majutsushi/tagbar'
-Plugin 'vim-airline/vim-airline'
+
+"lean & mean status/tabline for vim that's light as air
+Plugin 'vim-airline/vim-airline' 
+
+"Retro groove color scheme for Vim
 Plugin 'morhetz/gruvbox'
-" Plugin 'scrooloose/syntastic' " Syntax checking hacks for vim
-" Plugin 'kien/ctrlp.vim' " Fuzzy file, buffer, mru, tag, etc finder
-" Plugin 'honza/vim-snippets' " vim-snipmate default snippets (Previously snipmate-snippets)
-" Plugin 'terryma/vim-multiple-cursors' "  True Sublime Text style multiple selections for Vim
-" Plugin 'fatih/vim-go' " Plugin for golang language
 
 call vundle#end()
 filetype plugin indent on
@@ -66,13 +77,13 @@ else
 endif
 
 "Always show current position
-set ruler
+"set ruler
 
 " Height of the command bar
-set cmdheight=1
+"set cmdheight=1
 
 " A buffer becomes hidden when it is abandoned
-set hid
+"set hid
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
@@ -101,10 +112,25 @@ set magic
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
-
 " Add a bit extra margin to the left
-"set foldcolumn=1
+set foldcolumn=1
 
+" resize current window size
+noremap <silent> <C-S-l> :vertical resize +3<CR>
+noremap <silent> <C-S-h> :vertical resize -3<CR>
+noremap <silent> <C-S-j> :resize +3<CR>
+noremap <silent> <C-S-k> :resize -3<CR>
+
+" switch other window
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
+
+nnoremap <C-y> "+y
+vnoremap <C-y> "+y
+nnoremap <C-p> "+gP
+vnoremap <C-p> "+gP
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -120,8 +146,10 @@ set encoding=utf8
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => gruvbox theme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme gruvbox
+hi PmenuSel     ctermfg=NONE ctermbg=NONE
 set background=dark    " Setting dark mode
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme gruvbox
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
@@ -179,6 +207,7 @@ let g:airline#extensions#tabline#enabled=1
 nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 noremap <expr><silent> <leader>bf &showtabline ? ":set showtabline=0\<CR>" : ":set showtabline=2\<CR>"
+nnoremap <Leader>q :Bclose<CR>
 
 function s:SetCursorLine()
     set cursorline
