@@ -27,6 +27,14 @@ The plugin installed
 
 - Plugin [morhetz/gruvbox](https://github.com/morhetz/gruvbox)
 
+- Plugin [scrooloose/syntastic](https://github.com/scrooloose/syntastic)
+
+- Plugin [fatih/vim-go](https://github.com/fatih/vim-go)
+
+- Plugin [valloric/youcompleteme](https://github.com/valloric/youcompleteme)
+
+- Plugin [mbbill/undotree](https://github.com/mbbill/undotree)
+
 > You can add more plugin using [vundle](https://github.com/VundleVim/Vundle.vim) at [vimawesome](https://vimawesome.com/)
 
 Install simple
@@ -39,12 +47,23 @@ cd vimrc && bash install.sh
 
 |Shortcut|exec|
 |---|---|
-|;+w|save faster|
+|;+s|save faster|
 |F2|Open/Off NERTree|
 |F3|Open/Off tagbar|
 |Ctrl+ww|move to next window(when open multi window or open NERDTree)|
+|;+h|next left|
+|;+j|next below|
+|;+k|next above|
+|;+l|next right|
 |;+bf|show/hide buffer bar|
-|tab|move between buffer|
+|;+q|close buffer only|
+|;+t|open terminal below only active buffer|
+|;+T|open terminal below window|
+|ctrl+shift+h|resize left|
+|ctrl+shift+j|resize below|
+|ctrl+shift+k|resize above|
+|ctrl+shift+l|resize right|
+|ctrl+o|reopen lastest close buffer|
 
 --- 
 

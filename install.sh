@@ -60,6 +60,10 @@ setup() {
 
     printf "${NORMAL}[-] %s${NORMAL}\n" "Install Plugin..."
     vim +PluginInstall +qall
+
+    printf "${NORMAL}[-] %s${NORMAL}\n" "Install YouCompleteMe..."
+    cd "$VIM_DIR"/bundle/YouCompleteMe
+    python3 install.py --clangd-completer --go-completer
 }
 
 main() {
