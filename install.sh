@@ -33,7 +33,8 @@ if [[ -x $(command -v vim) ]]; then
     type -a vi 2>/dev/null
     if [[ "$?" -eq 1 ]];
     then
-        echo "alias vi=\'vim\'" >> ~/.bashrc
+        echo "# add alias for vi -> editer" >> ~/.bashrc
+        echo "alias vi='vim'" >> ~/.bashrc
     fi
 else
     printf "${WARNING}[?] %s${NORMAL}" "vim text editer not installed in your OS\nInstalling..."
