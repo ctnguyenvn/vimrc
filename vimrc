@@ -149,7 +149,7 @@ set encoding=utf8
 hi PmenuSel     ctermfg=NONE ctermbg=NONE
 set background=dark    " Setting dark mode
 let g:gruvbox_contrast_dark = 'hard'
-colorscheme gruvbox
+"colorscheme gruvbox
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
