@@ -30,6 +30,11 @@ fi
 
 if [[ -x $(command -v vim) ]]; then
     printf "${SUCCESS}[+] ${NORMAL}%s\n" "Vim: $(vim --version | head -n 1)"
+    type -a vi 2>/dev/null
+    if [[ "$?" -eq 1 ]];
+    then
+        echo "alias vi=\'vim\'" >> ~/.bashrc
+    fi
 else
     printf "${WARNING}[?] %s${NORMAL}" "vim text editer not installed in your OS\nInstalling..."
     if [[ -x $(which -v yum) ]]; then
