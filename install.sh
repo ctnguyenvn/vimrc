@@ -29,7 +29,7 @@ else
 fi
 
 if [[ -x $(command -v vim) ]]; then
-    printf "${SUCCESS}[+] ${NORMAL}%s\n" "Vim: $(vim --version)"
+    printf "${SUCCESS}[+] ${NORMAL}%s\n" "Vim: $(vim --version | head -n 1)"
 else
     printf "${WARNING}[?] %s${NORMAL}" "vim text editer not installed in your OS\nInstalling..."
     if [[ -x $(which -v yum) ]]; then
@@ -60,6 +60,9 @@ setup() {
 
     printf "${NORMAL}[-] %s${NORMAL}\n" "Install Plugin..."
     vim +PluginInstall +qall
+
+    printf "${NORMAL}[+] %s${NORMAL}\n" "Enable new theme"
+    sed -i 's/\"colorscheme gruvbox/colorscheme gruvbox/g' $VIM_FILE
 }
 
 main() {
