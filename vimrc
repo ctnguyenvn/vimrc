@@ -24,14 +24,11 @@ let mapleader = ";"
 " Fast saving
 nmap <leader>s :w!<cr>
 
-" NERDTree plugin
-nmap <F2> :NERDTreeToggle<cr>
-
 " Tagbar plugin
 nmap <F3> :TagbarToggle<cr>
 
 " Open terminal
-nmap <leader>t :below terminal<cr>
+map <leader>t :terminal<CR>
 nmap <leader>T :botright terminal<cr>
 
 " :W sudo saves the file 
@@ -62,6 +59,9 @@ Plugin 'majutsushi/tagbar'
 "lean & mean status/tabline for vim that's light as air
 Plugin 'vim-airline/vim-airline' 
 
+"Vim plugin which shows git diff markers in the sign column
+Plugin 'tpope/vim-fugitive'
+
 "Retro groove color scheme for Vim
 Plugin 'morhetz/gruvbox'
 
@@ -77,11 +77,14 @@ Plugin 'valloric/youcompleteme'
 " undotree plugin
 Plugin 'mbbill/undotree'
 
+" Icon
+Plugin 'ryanoasis/vim-devicons'
+
 " emmet for vim: http://emmet.io/
 "Plugin 'mattn/emmet-vim'
 
 " A command-line fuzzy finder
-Plugin 'junegunn/fzf'
+" Plugin 'junegunn/fzf'
 
 " Plugin 'honza/vim-snippets' " vim-snipmate default snippets (Previously snipmate-snippets)
 " Plugin 'terryma/vim-multiple-cursors' "  True Sublime Text style multiple selections for Vim
@@ -190,7 +193,7 @@ set noswapfile
 " Use spaces instead of tabs
 set expandtab
 
-" Be smart when using tabs ;)
+" Be smart when using tabs
 set smarttab
 
 " 1 tab == 4 spaces
@@ -209,7 +212,7 @@ set wrap "Wrap lines
 " Return to last edit position when opening files (You want this!)
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-" Delete trailing white space on save, useful for some filetypes ;)
+" Delete trailing white space on save, useful for some filetypes
 fun! CleanExtraSpaces()
     let save_cursor = getpos(".")
     let old_query = getreg('/')
@@ -227,10 +230,9 @@ endif
 " => Buffers & buffer using tab & cursorline color function
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:airline#extensions#tabline#enabled=1
 nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
-noremap <expr><silent> <leader>bf &showtabline ? ":set showtabline=0\<CR>" : ":set showtabline=2\<CR>"
+noremap <expr><silent> <leader>b &showtabline ? ":set showtabline=0\<CR>" : ":set showtabline=2\<CR>"
 nnoremap <Leader>q :Bclose<CR>
 
 function s:SetCursorLine()
@@ -242,8 +244,40 @@ autocmd VimEnter * call s:SetCursorLine()
 function s:HideTabline()
     set showtabline=0
 endfunction
-autocmd VimEnter * call s:HideTabline()
+"autocmd VimEnter * call s:HideTabline()
 
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#hunks#enabled = 1
+let g:airline#extensions#hunks#non_zero_only = 0
+let g:airline#extensions#hunks#hunk_symbols = ["\uf0fe:", "\uf14c:", "\uf146:"]
+
+let g:airline#extensions#tabline#enabled = 1
+
+" enable tabline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+
+" enable powerline fonts
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+
+" Always show tabs
+set showtabline=2
+
+let colorterm=$COLORTERM
+if colorterm=="truecolor" || colorterm=="24bit"
+  let g:airline_left_sep = "\uE0B4"
+  let g:airline_right_sep = "\uE0B6"
+else
+  let g:airline_left_sep = "\u205E"
+  let g:airline_right_sep = "\u205E"
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => YouCompleteMe plugin config
@@ -259,6 +293,27 @@ set completeopt+=popup
 " => Vim-go plugin config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => NERDTree plugin config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" NERDTree plugin
+nmap <F2> :NERDTreeToggle<CR>
+function! StartUp()
+    if !argc() && !exists("s:std_in")
+        NERDTree
+    end
+    if argc() && isdirectory(argv()[0]) && !exists("s:std_in")
+        exe 'NERDTree' argv()[0]
+        wincmd p
+        ene
+    end
+endfunction
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * call StartUp()
+autocmd BufWritePost * NERDTreeFocus | execute 'normal R' | wincmd p
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => UndoTree  plugin config
