@@ -30,10 +30,14 @@ set linebreak       " Enable line break
 set tw=500          " Number of character to break line
 set autoindent      " New lines inherit the indentation of previous lines
 set smartindent     " Smart indent with code edit
-"set wrap            " Enable wrap line
 
-"set expandtab       " Convert tabs to spaces
+" set wrap            " Enable wrap line
+" set wrap
+
+" set expandtab       " Convert tabs to spaces
 set smarttab        " Insert “tabstop” number of spaces when the “tab” key is pressed
 set shiftwidth=4    " When shifting, indent using four spaces
 set tabstop=4       " Indent using four spaces
 
+" set copy paste anywhere
+set clipboard=unnamedplus

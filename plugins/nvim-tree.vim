@@ -1,7 +1,7 @@
 
 nnoremap <silent> <leader>e :NvimTreeToggle<CR>
 nnoremap <silent> <leader>r :NvimTreeRefresh<CR>
-nnoremap <silent> <leader>n :NvimTreeFindFile<CR>
+nnoremap <silent> <leader>h :NvimTreeFocus<CR>
 " More available functions:
 " NvimTreeOpen
 " NvimTreeClose

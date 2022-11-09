@@ -12,6 +12,7 @@ let g:gruvbox_invert_selection = 0
 let g:gruvbox_termcolors = 16
 let g:gruvbox_guisp_fallback = 'fg'
 
+" autocmd vimenter * ++nested colorscheme onedark
 autocmd vimenter * ++nested colorscheme gruvbox
 
 function s:SetCursorLine()

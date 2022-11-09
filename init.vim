@@ -14,6 +14,7 @@ call plug#begin('~/.config/nvim/bundle')
 
 " Color Themes 
 Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
 
 " Git status
 Plug 'tpope/vim-fugitive'
@@ -23,7 +24,7 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 
 " A neovim lua plugin to help easily manage multiple terminal windows
-" Plug 'akinsho/toggleterm.nvim', tag = 'v1.*'
+Plug 'akinsho/toggleterm.nvim'
 
 " Find, Filter, Preview, Pick. All lua, all the time
 Plug 'nvim-lua/plenary.nvim'
@@ -40,10 +41,11 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'romgrk/barbar.nvim'
 
 " Autopairs for neovim written by lua 
-" Plug 'windwp/nvim-autopairs'
+Plug 'windwp/nvim-autopairs'
 
 " Smart and Powerful commenting plugin for neovim
-Plug 'numToStr/Comment.nvim'
+" Plug 'numToStr/Comment.nvim'
+Plug 'terrortylor/nvim-comment'
 
 " Quickstart configurations for the Nvim LSP client
 Plug 'neovim/nvim-lspconfig'
