@@ -41,3 +41,9 @@ function s:HideTabline()
     set showtabline=0
 endfunction
 autocmd VimEnter * call s:HideTabline()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => run project with makefile
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <silent> <F5> :split term://make run <CR>
+nnoremap <silent> <leader>t :split term:///bin/bash <CR>

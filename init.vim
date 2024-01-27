@@ -13,8 +13,9 @@ endfor
 call plug#begin('~/.config/nvim/bundle')
 
 " Color Themes 
-Plug 'morhetz/gruvbox'
-Plug 'joshdick/onedark.vim'
+Plug 'ellisonleao/gruvbox.nvim'
+Plug 'dracula/vim', { 'name': 'dracula' }
+Plug 'rebelot/kanagawa.nvim'
 
 " Git status
 Plug 'tpope/vim-fugitive'
@@ -31,8 +32,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 " Simple statusline component that shows what scope you are working inside 
+"Plug 'SmiteshP/nvim-navic'
 Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'SmiteshP/nvim-gps'
 
 " A file explorer tree for neovim written in lua 
 Plug 'kyazdani42/nvim-tree.lua'
@@ -44,7 +45,6 @@ Plug 'romgrk/barbar.nvim'
 Plug 'windwp/nvim-autopairs'
 
 " Smart and Powerful commenting plugin for neovim
-" Plug 'numToStr/Comment.nvim'
 Plug 'terrortylor/nvim-comment'
 
 " Quickstart configurations for the Nvim LSP client

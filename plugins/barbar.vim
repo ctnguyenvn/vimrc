@@ -42,5 +42,5 @@ nnoremap <silent>    <S-c> :BufferClose<CR>
 nnoremap <silent> <S-f>    :BufferPick<CR>
 
 
-call bufferline#highlight#setup()
-lua require'bufferline.highlight'.setup()
+"call bufferline#highlight#setup()
+"lua require'bufferline.highlight'.setup()

@@ -1,6 +1,5 @@
 set completeopt=menu,menuone,noselect
 
-
 lua << EOF
 -- Setup nvim-cmp.
 -- local WIDE_HEIGHT = 30
