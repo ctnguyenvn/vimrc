@@ -62,6 +62,9 @@ Plugin 'vim-airline/vim-airline'
 "Retro groove color scheme for Vim
 Plugin 'morhetz/gruvbox'
 
+" Highlight syntax for non-common format
+Plugin 'sheerun/vim-polyglot'
+
 call vundle#end()
 filetype plugin indent on
 
